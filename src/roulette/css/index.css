@@ -1,0 +1,18 @@
+.rounded-button {
+  border-radius: 50%;
+}
+
+#startButton {
+  width: 150px;
+  height: 150px;
+  font-variant: small-caps;
+  font-size: 2em;
+}
+
+label {
+  font-variant: small-caps;
+}
+
+*:not(input){
+  user-select: none;
+}

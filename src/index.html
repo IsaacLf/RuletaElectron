@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ruleta v3.0</title>
+  <link rel="stylesheet" href="./roulette/css/index.css">
+  <link rel="stylesheet" href="./roulette/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h1 style="font-variant: small-caps;">Ruleta v3.0</h1>
+    <form>
+      <div class="form-row">
+        <div class="col">
+          <label for="maximVal">Máximo</label>
+          <input type="number" name="maximVal" id="maximVal" class="form-control" placeholder="Ingrese un numero" aria-describedby="helpMax" min="0" value="10">
+          <small id="helpMax" class="text-muted">El numero de alumnos en la clase</small>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="delayVal">Suspenso: <span id="delay"></span></label>
+            <input type="range" class="form-control" name="delayVal" id="delayVal" aria-describedby="helpDelay" value="1" min="1" max="5" step="1">
+            <small id="helpDelay" class="form-text text-muted">El suspenso que quiera darle</small>
+          </div>
+        </div>
+      </div>
+    </form>  
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col align-self-center text-center">
+        <button id="startButton" class="btn btn-outline-info">Iniciar</button>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  require('./renderer')
+</script>
+
+</html>

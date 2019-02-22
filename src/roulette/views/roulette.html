@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Ruleta</title>
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <style>
+
+    * {
+      user-select: none;
+    }
+
+    h1 {
+      font-variant: small-caps;
+    }
+
+    #numList {
+      font-size: 64px;
+    }
+
+    #message {
+      font-variant: small-caps;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-4 pt-2">
+    <div class="row">
+      <div class="col align-self-center text-center">
+        <h1>Chan Chan!</h1>
+        <p id="length"></p>
+        <a id="closeWin" href="javascript:window.close()">Cerrar ventana</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  require('../ts/app.js')
+</script>
+</html>

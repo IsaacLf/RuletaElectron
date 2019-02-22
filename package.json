@@ -1,0 +1,68 @@
+{
+  "name": "ruletaelectron",
+  "productName": "RuletaElectron",
+  "version": "0.3.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "yarn run build && electron-forge start",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "package": "yarn run build && electron-forge package",
+    "make": "yarn run build && electron-forge make",
+    "publish": "yarn run build && electron-forge publish",
+    "lint": "eslint src --color"
+  },
+  "keywords": ["roulette, random-select"],
+  "author": "dudenology",
+  "license": "MIT",
+  "config": {
+    "forge": {
+      "make_targets": {
+        "win32": [
+          "squirrel"
+        ],
+        "darwin": [
+          "zip"
+        ],
+        "linux": [
+          "deb",
+          "rpm"
+        ]
+      },
+      "electronPackagerConfig": {
+        "packageManager": "yarn"
+      },
+      "electronWinstallerConfig": {
+        "name": "RuletaElectron"
+      },
+      "electronInstallerDebian": {},
+      "electronInstallerRedhat": {},
+      "github_repository": {
+        "owner": "IsaacLf",
+        "name": ""
+      },
+      "windowsStoreConfig": {
+        "packageName": "",
+        "name": "RuletaElectron"
+      }
+    }
+  },
+  "dependencies": {
+    "electron-compile": "^6.4.4",
+    "custom-electron-titlebar": "^3.0.3",
+    "electron-squirrel-startup": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "electron-forge": "^5.2.4",
+    "electron-prebuilt-compile": "4.0.0",
+    "eslint": "^3",
+    "eslint-config-airbnb": "^15",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-jsx-a11y": "^5",
+    "eslint-plugin-react": "^7"
+  }
+}
