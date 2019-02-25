@@ -9,10 +9,10 @@ var template = [
     {
         label: 'Archivo',
         submenu: [
-            {
-                label: "Abrir DevTools",
-                click: function () { electron_1.ipcRenderer.send('open-devTools'); }
-            },
+            // {
+            //   label: "Abrir DevTools",
+            //   click: () => { ipcRenderer.send('open-devTools') }
+            // },
             {
                 type: 'separator'
             },

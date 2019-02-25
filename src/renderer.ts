@@ -8,10 +8,10 @@ let template: MenuItemConstructorOptions[] = [
   {
     label: 'Archivo',
     submenu: [
-      {
-        label: "Abrir DevTools",
-        click: () => { ipcRenderer.send('open-devTools') }
-      },
+      // {
+      //   label: "Abrir DevTools",
+      //   click: () => { ipcRenderer.send('open-devTools') }
+      // },
       {
         type: 'separator'
       },
