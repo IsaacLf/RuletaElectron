@@ -1,26 +1,39 @@
 import { Roulette, RouletteResponse } from "./roulette";
-import { Titlebar, Color } from "custom-electron-titlebar";
 const ipc = require('electron').ipcRenderer;
 
 const len = <HTMLParagraphElement>document.getElementById('length');
+const closeWin = <HTMLLinkElement>document.getElementById('closeWin');
 let roulette: Roulette;
 let interval: NodeJS.Timer;
 
-ipc.on('studends', (event: any, value:string, delay: string) => {
+ipc.on('start-roulette', (event: any, max:number, delay: string) => {
   let response: RouletteResponse = { winner: false, listNumber: 0 };
   const timeOut = parseInt(delay) * 1000;
+  const waitTimeout = Math.floor(timeOut / 8 * 6);
 
-  roulette = new Roulette(parseInt(value));
+  roulette = new Roulette(max);
   roulette.shuffleStudents();
 
-  len.innerHTML = message(0, false);
-  interval = setInterval(function(){
-    response = roulette.getStudent();
+  // len.innerHTML = message(0, false);
+  response = roulette.getStudent();
+  len.innerHTML = waitMessage(response.listNumber);
+  setTimeout(function(){
     len.innerHTML = message(response.listNumber, response.winner);
-    if(response.winner){
-      clearInterval(interval);
-    }
-  }, timeOut);
+  }, waitTimeout);
+
+  if(!response.winner){
+    interval = setInterval(function(){
+      response = roulette.getStudent();
+      len.innerHTML = waitMessage(response.listNumber);
+      setTimeout(function(){
+        len.innerHTML = message(response.listNumber, response.winner);
+      }, waitTimeout);
+      if(response.winner){
+        clearInterval(interval);
+      }
+    }, timeOut);
+  }
+
 })
 
 function message(numlist: number, pass: boolean){
@@ -32,6 +45,19 @@ function message(numlist: number, pass: boolean){
   <span id="message">
     ${ pass ? 'Tú pasas!': 'Salvado!!!'}
   </span>`;
+  if(pass) closeWin.focus();
+  return template;
+}
+
+function waitMessage(numlist: number){
+  let template = 
+  `<span id="numList">
+    ${numlist}
+  </span>
+  <br>
+  <object type="image/svg+xml" data="../resources/svg/pacman-loading.svg" style="width: 45px; height: 45px;">
+    :c
+  </object>`;
   return template;
 }
 // console.log(roulette);

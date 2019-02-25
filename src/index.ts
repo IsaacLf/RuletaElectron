@@ -1,11 +1,12 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, IpcMain, dialog, ipcMain } from 'electron';
 import path = require('path');
 import url = require('url');
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
   app.quit();
 }
-
+// get the singleLock request to avoid create more than 1 instance of the app
+const gotSingleLock = app.requestSingleInstanceLock();
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow: BrowserWindow;
@@ -20,12 +21,13 @@ const createWindow = () => {
   });
   // and load the index.html of the app.
   // mainWindow.loadURL(`file://${__dirname}/index.html`);
-  const directory = url.format({
+  const viewPath = url.format({
     pathname: path.join(__dirname, '../src/index.html'),
     protocol: 'file',
     slashes: true
   });
-  mainWindow.loadURL(directory);
+
+  mainWindow.loadURL(viewPath);
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();
@@ -61,5 +63,33 @@ app.on('activate', () => {
   }
 });
 
+if(gotSingleLock) {
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+    }
+  })
+}
+
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on('open-about-dialog', (event: any) => {
+  const options: Electron.MessageBoxOptions = {
+    type: 'info',
+    title: 'Acerca de',
+    message: 'Ruleta Electrón',
+    buttons: ["Aceptar"],
+    detail: [ 
+      `Version: ${ app.getVersion() }`,
+      'Creado por: Victor Isaac Lopez Fernandez',
+      'Publicador: dudenology, 2018-2019'
+    ].join('\n')
+  }
+  dialog.showMessageBox(mainWindow, options);
+})
+
+ipcMain.on('open-devTools', (event: any) => {
+  mainWindow.webContents.openDevTools();
+});

@@ -3,25 +3,30 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Ruleta v3.0</title>
+  <title>Ruleta Electrón</title>
   <link rel="stylesheet" href="./roulette/css/index.css">
   <link rel="stylesheet" href="./roulette/css/bootstrap.min.css">
 </head>
 
 <body>
   <div class="container-fluid">
-    <h1 style="font-variant: small-caps;">Ruleta v3.0</h1>
+    <div class="row pl-3">
+      <h1 style="font-variant: small-caps; padding-right: 1rem;">Ruleta Electrón</h1>
+      <object type="image/svg+xml" data="./roulette/resources/svg/pacman-loading.svg" style="width: 45px; height: 45px;">
+        Your browser does not support SVG
+      </object>
+    </div>
     <form>
       <div class="form-row">
         <div class="col">
           <label for="maximVal">Máximo</label>
-          <input type="number" name="maximVal" id="maximVal" class="form-control" placeholder="Ingrese un numero" aria-describedby="helpMax" min="0" value="10">
+          <input type="number" name="maximVal" id="maximVal" class="form-control" placeholder="Ingrese un numero" aria-describedby="helpMax" min="0" value="10" autofocus>
           <small id="helpMax" class="text-muted">El numero de alumnos en la clase</small>
         </div>
         <div class="col">
           <div class="form-group">
-            <label for="delayVal">Suspenso: <span id="delay"></span></label>
-            <input type="range" class="form-control" name="delayVal" id="delayVal" aria-describedby="helpDelay" value="1" min="1" max="5" step="1">
+            <label for="delayVal">Suspenso: <span id="delay">Nada (1s)</span></label>
+            <input type="range" class="form-control" name="delayVal" id="delayVal" aria-describedby="helpDelay" value="1" min="1" max="9" step="2">
             <small id="helpDelay" class="form-text text-muted">El suspenso que quiera darle</small>
           </div>
         </div>
@@ -36,7 +41,7 @@
     </div>
   </div>
 </body>
-<script>
+<script async>
   require('./renderer')
 </script>
 

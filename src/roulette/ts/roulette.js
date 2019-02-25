@@ -11,7 +11,7 @@ var Roulette;
     }
     var Roulette = /** @class */ (function () {
         function Roulette(max) {
-            var __max = 40;
+            var __max = 10;
             if (typeof max === "number") {
                 __max = max;
             }

@@ -2,7 +2,7 @@
   "name": "ruletaelectron",
   "productName": "RuletaElectron",
   "version": "0.3.0",
-  "description": "My Electron application description",
+  "description": "Simple roulette application to randomly choose a person from a max number of persons",
   "main": "src/index.js",
   "scripts": {
     "start": "yarn run build && electron-forge start",
@@ -13,7 +13,9 @@
     "publish": "yarn run build && electron-forge publish",
     "lint": "eslint src --color"
   },
-  "keywords": ["roulette, random-select"],
+  "keywords": [
+    "roulette, random-select"
+  ],
   "author": "dudenology",
   "license": "MIT",
   "config": {
@@ -40,7 +42,7 @@
       "electronInstallerRedhat": {},
       "github_repository": {
         "owner": "IsaacLf",
-        "name": ""
+        "name": "RuletaElectron"
       },
       "windowsStoreConfig": {
         "packageName": "",
@@ -49,8 +51,8 @@
     }
   },
   "dependencies": {
-    "electron-compile": "^6.4.4",
     "custom-electron-titlebar": "^3.0.3",
+    "electron-compile": "^6.4.4",
     "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
