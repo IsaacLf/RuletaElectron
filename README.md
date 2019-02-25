@@ -1,8 +1,10 @@
 # Ruleta Electrón
 
+[![ReleaseVersion](https://img.shields.io/github/release/IsaacLf/RuletaElectron.svg)](https://github.com/IsaacLf/RuletaElectron/releases)
+[![ReleaseDate](https://img.shields.io/github/release-date/IsaacLf/RuletaElectron.svg)](https://github.com/IsaacLf/RuletaElectron/releases)
+[![TotalDownloads](https://img.shields.io/github/downloads/IsaacLf/RuletaElectron/total.svg)](https://github.com/IsaacLf/RuletaElectron)
 [![Last Commit](https://img.shields.io/github/last-commit/IsaacLf/RuletaElectron.svg)](https://github.com/IsaacLf/RuletaElectron/commits)
 [![Bugs](https://img.shields.io/github/issues/IsaacLf/RuletaElectron/bug.svg)](https://github.com/IsaacLf/RuletaElectron/labels/bug)
-[![ReleaseDate](https://img.shields.io/github/release-date/IsaacLf/RuletaElectron.svg)](https://github.com/IsaacLf/RuletaElectron/release)
 
 Ruleta Electrón (electron roulette) is a simple electron-based project for the need of randomize the pick of an student who's to present an exposition or a project
 
