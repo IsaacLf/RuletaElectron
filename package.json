@@ -1,7 +1,7 @@
 {
   "name": "ruletaelectron",
   "productName": "RuletaElectron",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple roulette application to randomly choose a person from a max number of persons",
   "main": "src/index.js",
   "scripts": {
@@ -17,6 +17,10 @@
     "roulette, random-select"
   ],
   "author": "dudenology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IsaacLf/RuletaElectron.git"
+  },
   "license": "MIT",
   "config": {
     "forge": {
@@ -53,7 +57,8 @@
   "dependencies": {
     "custom-electron-titlebar": "^3.0.3",
     "electron-compile": "^6.4.4",
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "^1.3.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",

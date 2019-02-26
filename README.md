@@ -13,8 +13,13 @@ Ruleta Electrón (electron roulette) is a simple electron-based project for the 
 </p>
 
 <p align="center">
+  <img alt="Roulette GIF" src="https://user-images.githubusercontent.com/36938997/53451225-eee73500-39e3-11e9-98dd-1bea65e8fdf9.gif">
+</p>
+
+<p align="center">
   <img alt="The Roulette In Action" src="https://user-images.githubusercontent.com/36938997/53307485-afdba700-385e-11e9-9f79-35aa2662c126.png">
 </p>
+
 
 ## License
 

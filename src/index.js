@@ -7,6 +7,7 @@ var url = require("url");
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
     electron_1.app.quit();
 }
+require('update-electron-app')();
 // get the singleLock request to avoid create more than 1 instance of the app
 var gotSingleLock = electron_1.app.requestSingleInstanceLock();
 // Keep a global reference of the window object, if you don't, the window will
